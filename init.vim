@@ -1,30 +1,95 @@
-set relativenumber
+" basics
+syntax on
+set number relativenumber
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+set cursorline
+set title
+set cmdheight=1
+set enc=utf-8
 
+" No sound bells
+set noerrorbells
+set novisualbell
+set tm=500
+
+" No backups
+set nobackup
+set nowb
+set noswapfile
+
+" Search settisgs
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+" Markdown
+au BufEnter,Bufread *.mkd,*.md,*mdown,*.markdown set tw=0
+
+" Html
+autocmd FileType html set sw=2
+autocmd FileType html set ts=2
+autocmd FileType html set sts=2
+autocmd FileType html set textwidth=0
+
+" Css
+autocmd FileType css set sw=2
+autocmd FileType css set ts=2
+autocmd FileType css set sts=2
+
+" Python
+autocmd FileType python set ai
+autocmd FileType python set ts=4
+autocmd FileType python set sts=4
+autocmd FileType python set sw=4
+autocmd FileType python set et
+
+" Detect Django template
+fun! DetectTemplate()
+    let n = 1
+    while n < line("$")
+        if getline(n) =~ '{%' || getline(n) =~ '{{'
+            set ft=htmldjango
+            return
+        endif
+        let n = n + 1
+    endwhile
+    set ft=html "default html
+endfun
+
+" Django
+autocmd BufNewFile,BufRead *.html call DetectTemplate()
+
+" plugins
 call plug#begin()
 
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'morhetz/gruvbox'
-Plug 'drewtempelmeyer/palenight.vim'
+Plug 'dracula/vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'scrooloose/nerdtree'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
+" colorscheme
 set termguicolors
-let g:palenight_terminal_italics=1
-colorscheme palenight
+colorscheme dracula
 
+" NerdTree
+let NERDTreeIgnore=['\.pyc$']
+nmap <F2> :NERDTreeToggle<CR>
 
-" TextEdit might fail if hidden is not set.
+" Coc Readme
+"TextEdit might fail if hidden is not set.
 set hidden
 
 " Some servers have issues with backup files, see #649.
