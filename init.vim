@@ -67,16 +67,30 @@ autocmd BufNewFile,BufRead *.html call DetectTemplate()
 " plugins
 call plug#begin()
 
+" Autopairs
 Plug 'jiangmiao/auto-pairs'
 
+" Comments
+Plug 'preservim/nerdcommenter'
+
+" Dracula
 Plug 'dracula/vim'
 
+" Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" NerdTree
 Plug 'scrooloose/nerdtree'
 
+" Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" React
+Plug 'maxmellon/vim-jsx-pretty'
+
+" Javascript
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
@@ -84,9 +98,26 @@ call plug#end()
 set termguicolors
 colorscheme dracula
 
+" Javascript
+augroup javascript_folding
+    au!
+    au FileType javascript set foldmethod=syntax ts=2 sts=2 sw=2 et
+augroup end
+
+" JSX
+let g:vim_jsx_pretty_template_tags=['html', 'jsx']
+let g:vim_jsx_pretty_colorful_config=1
+
 " NerdTree
 let NERDTreeIgnore=['\.pyc$']
 nmap <F2> :NERDTreeToggle<CR>
+
+" NerdCommenter
+let g:NERDSpaceDelims=1
+let g:NERDCompactSexyComs=1
+let g:NERDDefaultAlign='left'
+let g:NERDCommentEmptyLines=1
+let g:NERDToggleCheckAllLines=1
 
 " Coc Readme
 "TextEdit might fail if hidden is not set.
