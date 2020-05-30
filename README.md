@@ -1,2 +1,2 @@
 # Nvim Configuration for Django development
-- works for js, html, cs, python
+- works for laravel and react
