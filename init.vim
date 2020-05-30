@@ -41,29 +41,6 @@ autocmd FileType css set sw=2
 autocmd FileType css set ts=2
 autocmd FileType css set sts=2
 
-" Python
-autocmd FileType python set ai
-autocmd FileType python set ts=4
-autocmd FileType python set sts=4
-autocmd FileType python set sw=4
-autocmd FileType python set et
-
-" Detect Django template
-fun! DetectTemplate()
-    let n = 1
-    while n < line("$")
-        if getline(n) =~ '{%' || getline(n) =~ '{{'
-            set ft=htmldjango
-            return
-        endif
-        let n = n + 1
-    endwhile
-    set ft=html "default html
-endfun
-
-" Django
-autocmd BufNewFile,BufRead *.html call DetectTemplate()
-
 " plugins
 call plug#begin()
 
@@ -86,6 +63,8 @@ Plug 'scrooloose/nerdtree'
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'StanAngeloff/php.vim'
+
 " React
 Plug 'maxmellon/vim-jsx-pretty'
 
@@ -97,6 +76,10 @@ call plug#end()
 " colorscheme
 set termguicolors
 colorscheme dracula
+
+" PHP
+let g:php_version_id=70403
+let g:php_var_selector_is_identifier=1
 
 " Javascript
 augroup javascript_folding
