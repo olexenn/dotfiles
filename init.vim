@@ -6,10 +6,12 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
-set cursorline
 set title
 set cmdheight=1
 set enc=utf-8
+
+" no cursor changes
+set guicursor=
 
 " No sound bells
 set noerrorbells
@@ -47,11 +49,8 @@ call plug#begin()
 " Autopairs
 Plug 'jiangmiao/auto-pairs'
 
-" Comments
-Plug 'preservim/nerdcommenter'
-
-" Dracula
-Plug 'dracula/vim'
+" Colorcsheme
+Plug 'morhetz/gruvbox'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -63,6 +62,7 @@ Plug 'scrooloose/nerdtree'
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" php
 Plug 'StanAngeloff/php.vim'
 
 " React
@@ -75,7 +75,8 @@ call plug#end()
 
 " colorscheme
 set termguicolors
-colorscheme dracula
+set background=dark
+colorscheme gruvbox
 
 " PHP
 let g:php_version_id=70403
