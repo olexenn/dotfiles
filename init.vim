@@ -62,6 +62,10 @@ Plug 'scrooloose/nerdtree'
 " Cool Icons
 Plug 'ryanoasis/vim-devicons'
 
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -84,6 +88,9 @@ set termguicolors
 set background=dark
 let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
+
+" FZF settings
+nnoremap <C-p> :<C-u>FZF<CR>
 
 " Close Tags
 let g:closetag_xhtml_filenames='*.jsx'
