@@ -1,9 +1,9 @@
 " basics
 syntax on
 set number relativenumber
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 set title
@@ -59,49 +59,56 @@ Plug 'vim-airline/vim-airline-themes'
 " NerdTree
 Plug 'scrooloose/nerdtree'
 
+" Cool Icons
+Plug 'ryanoasis/vim-devicons'
+
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" php
-Plug 'StanAngeloff/php.vim'
+" Programming Languages
+Plug 'sheerun/vim-polyglot'
 
-" React
-Plug 'maxmellon/vim-jsx-pretty'
+" html closetag
+Plug 'alvan/vim-closetag'
 
-" Javascript
-Plug 'pangloss/vim-javascript'
+" html highlight tags
+Plug 'valloric/MatchTagAlways'
+
+" prettier formatter
+Plug 'prettier/vim-prettier', {'do': 'yarn install'}
 
 call plug#end()
 
 " colorscheme
 set termguicolors
 set background=dark
+let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
 
-" PHP
-let g:php_version_id=70403
-let g:php_var_selector_is_identifier=1
+" Close Tags
+let g:closetag_xhtml_filenames='*.jsx'
+let g:closetag_xhtml_filetypes='jxs'
+let g:closetag_region = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
 
-" Javascript
-augroup javascript_folding
-    au!
-    au FileType javascript set foldmethod=syntax ts=2 sts=2 sw=2 et
-augroup end
-
-" JSX
-let g:vim_jsx_pretty_template_tags=['html', 'jsx']
-let g:vim_jsx_pretty_colorful_config=1
+" MatchTagAlways
+let g:mta_filetypes = {
+      \ 'javascript.jsx': 1,
+      \ 'html': 1,
+      \ 'xhtml': 1,
+      \ 'xml': 1,
+      \ }
 
 " NerdTree
-let NERDTreeIgnore=['\.pyc$']
+let NERDTreeIgnore=['node_modules']
+let NERDTreeShowHidden=1
 nmap <F2> :NERDTreeToggle<CR>
 
-" NerdCommenter
-let g:NERDSpaceDelims=1
-let g:NERDCompactSexyComs=1
-let g:NERDDefaultAlign='left'
-let g:NERDCommentEmptyLines=1
-let g:NERDToggleCheckAllLines=1
+"Prettier settings
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.json,*.css PrettierAsync
 
 " Coc Readme
 "TextEdit might fail if hidden is not set.
