@@ -7,7 +7,7 @@ set shiftwidth=2
 set expandtab
 set autoindent
 set title
-set cmdheight=1
+set cmdheight=2
 set enc=utf-8
 
 " no cursor changes
@@ -20,6 +20,7 @@ set tm=500
 
 " No backups
 set nobackup
+set nowritebackup
 set nowb
 set noswapfile
 
@@ -51,6 +52,7 @@ Plug 'jiangmiao/auto-pairs'
 
 " Colorcsheme
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -86,8 +88,10 @@ call plug#end()
 " colorscheme
 set termguicolors
 set background=dark
-let g:gruvbox_contrast_dark="hard"
-colorscheme gruvbox
+let g:nord_bold = 0
+let g:nord_italic=1
+let g:nord_italic_comments=1
+colorscheme nord
 
 " FZF settings
 nnoremap <C-p> :<C-u>FZF<CR>
@@ -111,7 +115,7 @@ let g:mta_filetypes = {
 " NerdTree
 let NERDTreeIgnore=['node_modules']
 let NERDTreeShowHidden=1
-nmap <F2> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
 
 "Prettier settings
 let g:prettier#autoformat = 0
@@ -120,13 +124,6 @@ autocmd BufWritePre *.js,*.json,*.css PrettierAsync
 " Coc Readme
 "TextEdit might fail if hidden is not set.
 set hidden
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Give more space for displaying messages.
-set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
