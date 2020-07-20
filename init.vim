@@ -52,7 +52,7 @@ Plug 'jiangmiao/auto-pairs'
 
 " Colorcsheme
 Plug 'morhetz/gruvbox'
-Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -88,10 +88,7 @@ call plug#end()
 " colorscheme
 set termguicolors
 set background=dark
-let g:nord_bold = 0
-let g:nord_italic=1
-let g:nord_italic_comments=1
-colorscheme nord
+colorscheme dracula
 
 " FZF settings
 nnoremap <C-p> :<C-u>FZF<CR>
