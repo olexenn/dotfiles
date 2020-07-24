@@ -10,9 +10,6 @@ set title
 set cmdheight=2
 set enc=utf-8
 
-" no cursor changes
-set guicursor=
-
 " No sound bells
 set noerrorbells
 set novisualbell
@@ -62,7 +59,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 
 " Cool Icons
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
 
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -75,13 +72,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 
 " html closetag
-Plug 'alvan/vim-closetag'
+"Plug 'alvan/vim-closetag'
 
 " html highlight tags
-Plug 'valloric/MatchTagAlways'
+"Plug 'valloric/MatchTagAlways'
 
 " prettier formatter
-Plug 'prettier/vim-prettier', {'do': 'yarn install'}
+"Plug 'prettier/vim-prettier', {'do': 'yarn install'}
 
 call plug#end()
 
@@ -94,20 +91,20 @@ colorscheme dracula
 nnoremap <C-p> :<C-u>FZF<CR>
 
 " Close Tags
-let g:closetag_xhtml_filenames='*.jsx'
-let g:closetag_xhtml_filetypes='jxs'
-let g:closetag_region = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
+"let g:closetag_xhtml_filenames='*.jsx'
+"let g:closetag_xhtml_filetypes='jxs'
+"let g:closetag_region = {
+"    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+"    \ 'javascript.jsx': 'jsxRegion',
+"    \ }
 
 " MatchTagAlways
-let g:mta_filetypes = {
-      \ 'javascript.jsx': 1,
-      \ 'html': 1,
-      \ 'xhtml': 1,
-      \ 'xml': 1,
-      \ }
+"let g:mta_filetypes = {
+"      \ 'javascript.jsx': 1,
+"      \ 'html': 1,
+"      \ 'xhtml': 1,
+"      \ 'xml': 1,
+"      \ }
 
 " NerdTree
 let NERDTreeIgnore=['node_modules']
@@ -115,8 +112,8 @@ let NERDTreeShowHidden=1
 nmap <C-n> :NERDTreeToggle<CR>
 
 "Prettier settings
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.json,*.css PrettierAsync
+"let g:prettier#autoformat = 0
+"autocmd BufWritePre *.js,*.json,*.css PrettierAsync
 
 " Coc Readme
 "TextEdit might fail if hidden is not set.
