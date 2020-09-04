@@ -49,7 +49,6 @@ Plug 'jiangmiao/auto-pairs'
 
 " Colorcsheme
 Plug 'morhetz/gruvbox'
-Plug 'dracula/vim'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -83,9 +82,11 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 " colorscheme
-set termguicolors
+"set termguicolors
+set t_Co=256
 set background=dark
-colorscheme dracula
+let g:gruvbox_contrast_dark="hard""
+colorscheme gruvbox
 
 " FZF settings
 nnoremap <C-p> :<C-u>FZF<CR>
