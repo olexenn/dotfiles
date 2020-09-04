@@ -55,7 +55,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " NerdTree
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 
 " Cool Icons
 "Plug 'ryanoasis/vim-devicons'
@@ -69,6 +69,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Programming Languages
 Plug 'sheerun/vim-polyglot'
+
+Plug 'scrooloose/nerdcommenter'
 
 " html closetag
 "Plug 'alvan/vim-closetag'
@@ -89,7 +91,7 @@ let g:gruvbox_contrast_dark="hard""
 colorscheme gruvbox
 
 " FZF settings
-nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <C-/> :<C-u>FZF<CR>
 
 " Close Tags
 "let g:closetag_xhtml_filenames='*.jsx'
