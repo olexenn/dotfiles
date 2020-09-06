@@ -15,31 +15,11 @@ set noerrorbells
 set novisualbell
 set tm=500
 
-" No backups
-set nobackup
-set nowritebackup
-set nowb
-set noswapfile
-
 " Search settisgs
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-
-" Markdown
-au BufEnter,Bufread *.mkd,*.md,*mdown,*.markdown set tw=0
-
-" Html
-autocmd FileType html set sw=2
-autocmd FileType html set ts=2
-autocmd FileType html set sts=2
-autocmd FileType html set textwidth=0
-
-" Css
-autocmd FileType css set sw=2
-autocmd FileType css set ts=2
-autocmd FileType css set sts=2
 
 " plugins
 call plug#begin()
@@ -57,9 +37,6 @@ Plug 'vim-airline/vim-airline-themes'
 " NerdTree
 Plug 'preservim/nerdtree'
 
-" Cool Icons
-"Plug 'ryanoasis/vim-devicons'
-
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -72,14 +49,8 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'scrooloose/nerdcommenter'
 
-" html closetag
-"Plug 'alvan/vim-closetag'
-
-" html highlight tags
-"Plug 'valloric/MatchTagAlways'
-
 " prettier formatter
-"Plug 'prettier/vim-prettier', {'do': 'yarn install'}
+Plug 'prettier/vim-prettier', {'do': 'yarn install'}
 
 call plug#end()
 
@@ -93,30 +64,14 @@ colorscheme gruvbox
 " FZF settings
 nnoremap <C-/> :<C-u>FZF<CR>
 
-" Close Tags
-"let g:closetag_xhtml_filenames='*.jsx'
-"let g:closetag_xhtml_filetypes='jxs'
-"let g:closetag_region = {
-"    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-"    \ 'javascript.jsx': 'jsxRegion',
-"    \ }
-
-" MatchTagAlways
-"let g:mta_filetypes = {
-"      \ 'javascript.jsx': 1,
-"      \ 'html': 1,
-"      \ 'xhtml': 1,
-"      \ 'xml': 1,
-"      \ }
-
 " NerdTree
 let NERDTreeIgnore=['node_modules']
 let NERDTreeShowHidden=1
 nmap <C-n> :NERDTreeToggle<CR>
 
 "Prettier settings
-"let g:prettier#autoformat = 0
-"autocmd BufWritePre *.js,*.json,*.css PrettierAsync
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.json,*.css PrettierAsync
 
 " Coc Readme
 "TextEdit might fail if hidden is not set.
