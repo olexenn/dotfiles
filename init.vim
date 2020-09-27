@@ -10,6 +10,10 @@ set title
 set cmdheight=2
 set enc=utf-8
 
+
+"set block cursor
+set guicursor=n-v-c-sm-i-ci-ve:blinkon0
+
 " No sound bells
 set noerrorbells
 set novisualbell
@@ -28,7 +32,10 @@ call plug#begin()
 Plug 'jiangmiao/auto-pairs'
 
 " Colorcsheme
-Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
+
+" rainbow brackets
+Plug 'frazrepo/vim-rainbow'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -46,7 +53,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Programming Languages
 Plug 'sheerun/vim-polyglot'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
+" Comments
 Plug 'scrooloose/nerdcommenter'
 
 " prettier formatter
@@ -55,23 +64,26 @@ Plug 'prettier/vim-prettier', {'do': 'yarn install'}
 call plug#end()
 
 " colorscheme
-"set termguicolors
-set t_Co=256
-set background=dark
-let g:gruvbox_contrast_dark="hard""
-colorscheme gruvbox
+set termguicolors
+let g:molokai_original = 1
+colorscheme molokai
+
+" rainbow brackets
+let g:rainbow_active = 1
 
 " FZF settings
-nnoremap <C-/> :<C-u>FZF<CR>
+nnoremap <C-p> :<C-u>FZF<CR>
 
 " NerdTree
 let NERDTreeIgnore=['node_modules']
 let NERDTreeShowHidden=1
 nmap <C-n> :NERDTreeToggle<CR>
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
 
 "Prettier settings
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.json,*.css PrettierAsync
+"let g:prettier#autoformat = 0
+"autocmd BufWritePre *.js, PrettierAsync
 
 " Coc Readme
 "TextEdit might fail if hidden is not set.
