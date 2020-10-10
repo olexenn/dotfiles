@@ -15,8 +15,8 @@ highlight PreProc ctermfg=red
 highlight Exception ctermfg=red
 highlight Operator ctermfg=red
 highlight Function ctermfg=lightblue
-hi CursorLine ctermfg=white
-hi CursorLineNR ctermfg=blue
+hi CursorLine cterm=none
+hi CursorLineNR ctermfg=blue cterm=none
 
 " Search settisgs
 set incsearch
