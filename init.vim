@@ -1,15 +1,14 @@
 " basics
 syntax on
-set number relativenumber
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set number 
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 set autoindent
 set title
 set cmdheight=2
 set enc=utf-8
-
 
 "set block cursor
 set guicursor=n-v-c-sm-i-ci-ve:blinkon0
@@ -32,7 +31,7 @@ call plug#begin()
 Plug 'jiangmiao/auto-pairs'
 
 " Colorcsheme
-Plug 'tomasr/molokai'
+Plug 'arcticicestudio/nord-vim'
 
 " rainbow brackets
 Plug 'frazrepo/vim-rainbow'
@@ -59,14 +58,16 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'scrooloose/nerdcommenter'
 
 " prettier formatter
-Plug 'prettier/vim-prettier', {'do': 'yarn install'}
+"Plug 'prettier/vim-prettier', {'do': 'yarn install'}
 
 call plug#end()
 
+" airline config
+let g:airline_powerline_fonts = 1
+
 " colorscheme
 set termguicolors
-let g:molokai_original = 1
-colorscheme molokai
+colorscheme nord 
 
 " rainbow brackets
 let g:rainbow_active = 1
