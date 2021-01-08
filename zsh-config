@@ -1,0 +1,16 @@
+# theme
+ZSH_THEME="eastwood"
+
+# plugins
+plugins=(git zsh-syntax-highlighting)
+
+# export EDITOR='vim'
+export EDITOR='nvim'
+
+# aliases
+alias mv="mv -i"
+alias rm="rm -i"
+alias nn="nvim"
+
+alias py3="python3"
+alias ipy="ipython"

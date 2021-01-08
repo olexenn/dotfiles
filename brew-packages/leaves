@@ -6,7 +6,9 @@ fpc
 ghc
 gnutls
 google-sparsehash
+gotop
 htop
+ipython
 libressl
 llvm
 mercurial
