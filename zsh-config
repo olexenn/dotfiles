@@ -14,3 +14,7 @@ alias nn="nvim"
 
 alias py3="python3"
 alias ipy="ipython"
+
+alias code="code-insiders"
+
+export FZF_DEFAULT_COMMAND='rg --files'

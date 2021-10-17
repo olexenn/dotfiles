@@ -2,14 +2,14 @@
 set number
 
 set autoindent
-set enc=utf-8
+"set enc=utf-8
 
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
 
-"autocmd Filetype py tabstop=4 softtabstop=4 shiftwidth=4
+autocmd Filetype py tabstop=4 softtabstop=4 shiftwidth=4
 
 set hlsearch
 set incsearch
@@ -39,8 +39,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
 
 " colorscheme
-Plug 'olexenn/primer-dark.vim'
-
+"Plug 'dracula/vim', { 'name': 'dracula' }
+Plug 'gruvbox-community/gruvbox'
+"Plug 'sainnhe/gruvbox-material'
+"Plug 'ackyshake/Spacegray.vim'
+Plug 'arcticicestudio/nord-vim'
 " better syntax highlighting
 Plug 'octol/vim-cpp-enhanced-highlight'
 "Plug 'bfrg/vim-cpp-modern'
@@ -49,6 +52,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " cool statusline
 Plug 'itchyny/lightline.vim'
+"Plug 'dneto/spacegray-lightline'
 
 " completion
 Plug 'neoclide/coc.nvim'
@@ -63,33 +67,41 @@ if has("termguicolors")
   set termguicolors
 endif
 
-set background=dark
-"let g:gruvbox_material_background = "hard"
-"let g:gruvbox_material_disable_italic_comment = 1
-"colorscheme gruvbox-material
-colorscheme primerdark
+"set background=dark
+colorscheme nord
 
 " lightline config
 let g:lightline = {
-      \ 'colorscheme': 'primerdark',
+      \ 'colorscheme': 'nord',
       \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
       \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
       \}
 
 " FZF keybinding
-nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <C-p> :<C-u>Files<CR>
 
+" cpp
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 
-" vim-go syntax
+" vim-go
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_types = 1
+
+let g:coc_global_extensions = [
+      \ 'coc-tsserver'
+      \ ]
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
 
 
 " commenting keybinding
@@ -100,8 +112,10 @@ nmap ++ <plug>NERDCommenterToggle
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#exec_cmd_async = 1
 
+" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" unicode characters in the file autoload/float.vim
+set encoding=utf-8
 
-" Coc Readme
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -121,7 +135,7 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
+if has("nvim-0.5.0") || has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
 else
