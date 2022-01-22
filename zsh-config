@@ -1,8 +1,8 @@
 # theme
-ZSH_THEME="eastwood"
+ZSH_THEME="flazz"
 
 # plugins
-plugins=(git zsh-syntax-highlighting)
+plugins=(git zsh-auto-suggestions zsh-syntax-highlighting)
 
 # export EDITOR='vim'
 export EDITOR='nvim'
@@ -15,6 +15,6 @@ alias nn="nvim"
 alias py3="python3"
 alias ipy="ipython"
 
-alias code="code-insiders"
+#alias code="code-insiders"
 
-export FZF_DEFAULT_COMMAND='rg --files'
+#export FZF_DEFAULT_COMMAND='rg --files'

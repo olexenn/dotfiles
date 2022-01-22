@@ -14,6 +14,6 @@
 
 ## tmux
 
-## Terminal - terminal.app/iterm2
-- colorscheme - [nord](https://www.nordtheme.com)
-- font - [hack](https://sourcefoundry.org/hack/)/[patched hack](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts)
+## Terminal - iterm2
+- colorscheme - gruvbox
+- font - [FiraCode Nerd](https://www.nerdfonts.com/font-downloads)

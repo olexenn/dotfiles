@@ -1,117 +1,3 @@
-" basics
-set number
-
-set autoindent
-"set enc=utf-8
-
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-
-autocmd Filetype py tabstop=4 softtabstop=4 shiftwidth=4
-
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-
-set noerrorbells
-set novisualbell
-
-" disable neovim cursor
-set guicursor=
-
-"no --insert-- and other things
-set noshowmode
-
-" plugins
-call plug#begin()
-
-" autopairs, lol
-Plug 'jiangmiao/auto-pairs'
-
-" fuzzy search files in vim
-Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-" commenting line(s)
-Plug 'scrooloose/nerdcommenter'
-
-" colorscheme
-"Plug 'dracula/vim', { 'name': 'dracula' }
-Plug 'gruvbox-community/gruvbox'
-"Plug 'sainnhe/gruvbox-material'
-"Plug 'ackyshake/Spacegray.vim'
-Plug 'arcticicestudio/nord-vim'
-" better syntax highlighting
-Plug 'octol/vim-cpp-enhanced-highlight'
-"Plug 'bfrg/vim-cpp-modern'
-Plug 'sheerun/vim-polyglot'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" cool statusline
-Plug 'itchyny/lightline.vim'
-"Plug 'dneto/spacegray-lightline'
-
-" completion
-Plug 'neoclide/coc.nvim'
-
-" formating thing
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-
-call plug#end()
-
-" colorscheme
-if has("termguicolors")
-  set termguicolors
-endif
-
-"set background=dark
-colorscheme nord
-
-" lightline config
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
-      \}
-
-" FZF keybinding
-nnoremap <C-p> :<C-u>Files<CR>
-
-" cpp
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_posix_standard = 1
-
-" vim-go
-let g:go_def_mode = 'gopls'
-let g:go_info_mode = 'gopls'
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_types = 1
-
-let g:coc_global_extensions = [
-      \ 'coc-tsserver'
-      \ ]
-
-if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-  let g:coc_global_extensions += ['coc-eslint']
-endif
-
-
-" commenting keybinding
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
-
-" Prettier
-let g:prettier#autoformat_require_pragma = 0
-let g:prettier#exec_cmd_async = 1
-
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
@@ -220,6 +106,9 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
+" Run the Code Lens action on the current line.
+nmap <leader>cl  <Plug>(coc-codelens-action)
+
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
@@ -247,13 +136,13 @@ nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Format :call CocActionAsync('format')
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
