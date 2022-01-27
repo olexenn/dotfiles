@@ -84,9 +84,9 @@ autocmd FileType defx call s:defx_my_settings()
       "\ 'root_icon': ' ',
       "\ })
 call defx#custom#column('icon', {
-      \ 'directory_icon': '▸ ',
+      \ 'directory_icon': '  ',
       \ 'file_icon': '  ',
-      \ 'opened_icon': '▾ ',
+      \ 'opened_icon': '  ',
       \ 'root_icon': '  ',
       \ })
 call defx#custom#column('git', 'indicators', {
