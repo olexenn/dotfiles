@@ -32,10 +32,15 @@ if has("termguicolros")
   set termguicolors
 endif
 
-"let g:gruvbox_material_palette='mix'
-"let g:gruvbox_material_background='hard'
+function! s:gruvbox_material_custom() abort
+  
+endfunction
+
+let g:gruvbox_material_palette = 'material'
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_ui_contrast = 'high'
 "let g:gruvbox_material_better_performance=0
 
-colorscheme gruvbox
+colorscheme gruvbox-material
 
 set exrc
