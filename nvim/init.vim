@@ -28,19 +28,12 @@ if has("unix")
   endif
 endif
 
-if has("termguicolros")
-  set termguicolors
-endif
+set termguicolors
 
-function! s:gruvbox_material_custom() abort
-  
-endfunction
+set background=dark
 
-let g:gruvbox_material_palette = 'material'
 let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_ui_contrast = 'high'
-"let g:gruvbox_material_better_performance=0
-
+let g:gruvbox_material_palette = 'material'
 colorscheme gruvbox-material
 
 set exrc
