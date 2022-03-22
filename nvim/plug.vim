@@ -19,6 +19,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': 'TSUpdate' }
 Plug 'hoob3rt/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
