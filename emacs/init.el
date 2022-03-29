@@ -53,10 +53,16 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(use-package doom-themes
-	     :ensure t
-	     :preface (defvar region-fg nil)
-	     :init (load-theme 'doom-one t))
+;; (use-package doom-themes
+;; 	     :ensure t
+;; 	     :preface (defvar region-fg nil)
+;; 	     :init (load-theme 'doom-one t)
+;;          :config (setq doom-themes-enable-bold nil))
+
+(use-package nord-theme
+  :ensure t
+  :init (setq nord-region-highlight "frost")
+  (load-theme 'nord))
 
 (use-package all-the-icons
   :ensure t
@@ -174,6 +180,11 @@
     "h" 'dired-up-directory
     "l" 'dired-find-file))
 
+;; (use-package dired-details
+;;   :ensure t
+;;   :init (setq dired-details-hidden-string "* ")
+;;   :config (dired-details-install))
+
 (use-package which-key
   :ensure t
   :init
@@ -182,14 +193,85 @@
   :config
   (which-key-mode))
 
+(use-package company
+  :ensure t
+  :config (setq company-minimum-prefix-length 1
+                company-idle-delay 0.01)
+  (global-company-mode t))
+
+(use-package company-box
+  :after company
+  :ensure t
+  :hook
+  (company-mode . company-box-mode))
+
+(use-package json-mode
+  :ensure t)
+
+(use-package web-mode
+  :ensure t
+  :config (setq web-mode-markup-indent-offset 2
+                web-mode-code-indent-offset 2
+                web-mode-css-indent-offset 2)
+  :mode (("\\.js\\'" . web-mode)
+	 ("\\.jsx\\'" .  web-mode)
+	 ("\\.ts\\'" . web-mode)
+	 ("\\.tsx\\'" . web-mode)
+	 ("\\.html\\'" . web-mode))
+  :commands web-mode)
+
 (use-package lsp-mode
   :ensure t
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :hook ((lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+  :config (setq lsp-log-io nil
+                lsp-keymap-prefx "C-c l"
+                lsp-restart 'auto-restart)
+  :hook
+  (lsp-mode . lsp-enable-which-key-integration)
+  (web-mode . lsp-deferred)
+  :commands lsp-deferred)
 
 (use-package lsp-ui
   :ensure t
+  :config (setq lsp-ui-sideline-show-diagnostics t
+                lsp-ui-sideline-show-hover t
+                lsp-ui-sideline-show-code-actions t)
   :commands
   (lsp-ui-mode))
+
+(use-package ido
+  :ensure t
+  :init (setq ido-enable-flex-matching t
+              ido-ignore-extenstions t
+              ido-use-virtual-buffers t
+              ido-everywhere t)
+  :config
+  (ido-mode 1)
+  (ido-everywhere 1)
+  (add-to-list 'completion-ignored-extensions ".pyc"))
+
+(use-package flx-ido
+  :ensure t
+  :init (setq ido-enable-flex-matching t
+              ido-use-faces nil)
+  :config (flx-ido-mode 1))
+
+(use-package ido-vertical-mode
+  :ensure t
+  :init
+  (setq ido-vertical-define-keys 'C-n-C-p-up-and-down)
+  :config
+  (ido-vertical-mode 1))
+
+(use-package smex
+  :ensure t
+  :init (smex-initialize)
+  :bind ("M-x" . smex))
+  ;; ("M-x" . smex-major-mode-commands))
+
+(use-package auctex
+  :defer t
+  :ensure t
+  :config
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
+  (setq-default TeX-master nil))
