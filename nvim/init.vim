@@ -31,10 +31,20 @@ endif
 set termguicolors
 
 set background=dark
+set cursorline
 
 let g:gruvbox_material_transparent_background = 1
 let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_enable_italic=1
 let g:gruvbox_material_palette = 'material'
+
+"let g:nord_cursor_line_number_background = 1
+"let g:nord_uniform_diff_background = 1
+"let g:nord_italics = 1
+"let g:nord_italic_comments = 1
+"let g:nord_underline = 1
+
 colorscheme gruvbox-material
+hi! Normal ctermbg=NONE guibg=NONE
 
 set exrc
