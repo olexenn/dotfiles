@@ -1,5 +1,5 @@
 ;;; init.el --- -*- lexical-binding: t -*-
-;;; Commentary
+;;; Commentary:
 ;; My personal Emacs config
 ;;; Code:
 
@@ -26,9 +26,9 @@
   :preface
   (defvar olexenn/indent-width 4)
   (defun olexenn/split-and-follow-horizontally ()
-    "Split window bellow."
+    "Split window below."
     (interactive)
-    (split-window-bellow)
+    (split-window-below)
     (other-window 1))
   (defun olexenn/split-and-follow-vertically ()
     "Split window right."
@@ -202,7 +202,7 @@
 (use-package highlight-symbol
   :hook (prog-mode . highlight-symbol-mode)
   :config
-  (setq hightlight-symbol-idle-delay 0.3))
+  (setq highlight-symbol-idle-delay 0.3))
 
 (use-package highlight-numbers
   :hook (prog-mode . highlight-numbers-mode))
@@ -240,6 +240,11 @@
 (use-package evil
   :after (undo-fu evil-leader)
   :hook (after-init . evil-mode)
+  :preface
+  (defun olexenn/pulse-line ()
+    "Flash highlight the current line."
+    (interactive)
+    (pulse-momentary-highlight-one-line (point) 'region))
   :config
   (setq evil-insert-state-cursor '(bar . 1))
 
@@ -354,7 +359,7 @@
           typescript-mode ; ts-ls
           web-mode        ; ts-ls/html/css
           ruby-mode       ; solargraph
-          ) . lsp-dererred)
+          ) . lsp-deferred)
   :preface
   (defun olexenn/lsp-execute-code-action ()
     "Execute code action with pulse-line animation"
@@ -404,7 +409,7 @@
               #'(lambda ()
                   (when (bound-and-true-p lsp-ui-mode)
                     (define-key evil-motion-state-local-map (kbd "K")
-                      #'(lambda () (interactive) (lsp-ui-doc-glance) (ian/pulse-line)))))))
+                      #'(lambda () (interactive) (lsp-ui-doc-glance) (olexenn/pulse-line)))))))
   (custom-set-faces '(lsp-ui-sideline-global ((t (:italic t)))))
   (setq lsp-ui-doc-enable nil)
   (setq lsp-ui-doc-use-childframe t)
@@ -551,3 +556,6 @@
   :config
   (setq which-key-idle-delay 0.4)
   (which-key-mode +1))
+
+(provide 'init)
+;;; init.el ends here
