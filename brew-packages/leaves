@@ -1,12 +1,7 @@
-cmake
 fd
 htop
-llvm
 luajit-openresty
-mongodb/brew/mongodb-community
-mysql
 neovim
 node
 ripgrep
 tmux
-yarn
