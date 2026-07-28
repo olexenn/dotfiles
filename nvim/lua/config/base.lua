@@ -9,6 +9,10 @@ vim.opt.relativenumber = true
 
 vim.opt.guicursor = "n-v-c-i-ci-ve-sm:block,r-cr-o:hor20"
 
+vim.opt.textwidth = 80
+vim.opt.colorcolumn = "+1"
+vim.opt.clipboard = "unnamedplus"
+
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -51,10 +55,19 @@ vim.cmd('filetype plugin indent on')
 -- mouse support
 vim.cmd([[set mouse=a]])
 
+-- diagnostic windo
 vim.diagnostic.config({
   float = {
     border = "rounded",
     sources = "if_many",
     header = ''
   },
+})
+
+-- set filetype detection for c/cpp headers
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.h",
+  callback = function ()
+    vim.bo.filetype = "c" 
+  end
 })
