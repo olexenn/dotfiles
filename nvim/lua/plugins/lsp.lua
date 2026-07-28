@@ -84,5 +84,18 @@ return {
         end, { 'i', 's' }),
       }),
     })
+    vim.keymap.set('n', 'gl', function ()
+      vim.diagnostic.open_float({ scope = "line" })
+    end)
+    vim.diagnostic.config({
+      severity_sort = true,
+      virtual_text = {
+        severity = { min = vim.diagnostic.severity.WARN },
+      },
+      underline = {
+        severity = { min = vim.diagnostic.severity.WARN },
+      },
+      severity = { min = vim.diagnostic.severity.WARN },
+    })
   end,
 }

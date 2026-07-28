@@ -7,6 +7,8 @@ vim.opt.fileencoding = 'utf-8'
 vim.wo.number = true
 vim.opt.relativenumber = true
 
+vim.opt.guicursor = "n-v-c-i-ci-ve-sm:block,r-cr-o:hor20"
+
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -43,6 +45,16 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
 
+vim.cmd('filetype plugin indent on')
+
 
 -- mouse support
 vim.cmd([[set mouse=a]])
+
+vim.diagnostic.config({
+  float = {
+    border = "rounded",
+    sources = "if_many",
+    header = ''
+  },
+})

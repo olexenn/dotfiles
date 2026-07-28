@@ -35,3 +35,6 @@ keymap.set('n', '<C-w><down>', '<C-w>-')
 
 -- Open Oil
 keymap.set('n', "sf", ':Oil<CR>')
+
+-- Diagnostic window
+keymap.set('n', "[e", vim.diagnostic.open_float, { desc = "Show line diagnostic" })

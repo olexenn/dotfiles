@@ -21,23 +21,26 @@ return {
         'jsonls',
         'lua_ls',
         'eslint',
+        'clangd',
+        'rust_analyzer'
       },
     })
 
     -- SERVERS
     -- lsp config needs to be called after mason init
-    local lsp = require('lspconfig')
-    lsp.ts_ls.setup({})
-    lsp.tailwindcss.setup({})
-    lsp.html.setup({})
-    lsp.cssls.setup({})
-    lsp.jsonls.setup({})
-    lsp.lua_ls.setup({
+    vim.lsp.config('ts_ls', {})
+    vim.lsp.config('tailwindcss', {})
+    vim.lsp.config('html', {})
+    vim.lsp.config('cssls', {})
+    vim.lsp.config('jsonls', {})
+    vim.lsp.config('clangd', {})
+    vim.lsp.config('lua_ls', {
       settings = {
         Lua = { diagnostics = { globals = { 'vim' } } },
       },
     })
-    lsp.eslint.setup({
+    vim.lsp.config('rust_analyzer', {})
+    vim.lsp.config('eslint', {
       on_attach = function(client, bufnr)
         vim.api.nvim_create_autocmd('BufWritePre', {
           buffer = bufnr,
@@ -45,6 +48,13 @@ return {
         })
       end,
     })
+    -- vim.lsp.config('eslint', {
+    --   on_attach = function (client, bufnr)
+    --     vim.api.nvim_create_autocmd('BufWritePre', {
+    --       context = { only = { 'source.fixAll.eslint' } },
+    --     }) 
+    --   end
+    -- })
   end,
 
   opts = {
