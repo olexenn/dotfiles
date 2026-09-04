@@ -1,5 +1,6 @@
 background = 062625
 foreground = d0b892
+cursor-color = 86e08f
 selection-background = 0000ff
 selection-foreground = ffffff
 

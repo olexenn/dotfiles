@@ -9,20 +9,11 @@ return {
     require('mason').setup({
       ensure_installed = {
         'stylua',
-        'prettier',
       },
     })
     require('mason-lspconfig').setup({
       ensure_installed = {
-        'ts_ls',
-        'tailwindcss',
-        'html',
-        'cssls',
-        'jsonls',
-        'lua_ls',
-        'eslint',
         'clangd',
-        'rust_analyzer'
       },
     })
 

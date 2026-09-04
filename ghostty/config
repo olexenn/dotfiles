@@ -8,3 +8,4 @@ adjust-cell-height = 15%
 
 shell-integration-features = no-cursor,title
 cursor-style-blink = false
+app-notifications = no-clipboard-copy
