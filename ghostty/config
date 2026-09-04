@@ -1,0 +1,10 @@
+theme = naysayer
+
+command = /bin/zsh
+
+font-size = 13
+font-thicken = true
+adjust-cell-height = 15%
+
+shell-integration-features = no-cursor,title
+cursor-style-blink = false

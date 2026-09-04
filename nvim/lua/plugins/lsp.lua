@@ -48,6 +48,7 @@ return {
       },
       preselect = 'item',
       completion = {
+        -- autocomplete = false,
         completeopt = 'menu,menuone,noinsert',
       },
       window = {
