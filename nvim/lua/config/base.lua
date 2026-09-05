@@ -72,14 +72,14 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end
 })
 
-local group = vim.api.nvim_create_augroup("DisableTSForCPP", { clear = true })
-
-vim.api.nvim_create_autocmd("FileType", {
-  group = group,
-  pattern = "cpp",
-  callback = function (args)
-    vim.treesitter.stop(args.buf)
-
-    vim.cmd("syntax on")
-  end,
-})
+-- local group = vim.api.nvim_create_augroup("DisableTSForCPP", { clear = true })
+--
+-- vim.api.nvim_create_autocmd("FileType", {
+--   group = group,
+--   pattern = "cpp",
+--   callback = function (args)
+--     vim.treesitter.stop(args.buf)
+--
+--     vim.cmd("syntax on")
+--   end,
+-- })

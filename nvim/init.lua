@@ -11,3 +11,5 @@ local is_mac = has 'macunix'
 if is_mac then
   require('config.macos')
 end
+
+vim.cmd.colorscheme("greeny")
