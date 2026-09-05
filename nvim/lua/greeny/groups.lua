@@ -21,6 +21,7 @@ M.setup = function ()
     Number     = { fg = colors.number },
     String     = { fg = colors.string },
     Boolean    = { fg = colors.constant },
+    Operator   = { fg = colors.fg },
     Constant   = { fg = colors.constant },
     Statement  = { fg = colors.keyword },
     Keyword    = { fg = colors.keyword },
