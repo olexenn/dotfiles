@@ -4,15 +4,15 @@ cursor-color = 86e08f
 selection-background = 0000ff
 selection-foreground = ffffff
 
-palette = 0=062625
-palette = 1=e06c75
-palette = 2=98c379
-palette = 3=d19a66
-palette = 4=61afef
-palette = 5=c678dd
-palette = 6=56b6c2
-palette = 7=abb2bf
-palette = 8=5c6370
+palette = 0=062b2a
+palette = 1=f92672
+palette = 2=8cde94
+palette = 3=ffaa00
+palette = 4=3ad0b5
+palette = 5=f286ab
+palette = 6=87ffde
+palette = 7=d0b892
+palette = 8=b7ced5
 palette = 9=e06c75
 palette = 10=98c379
 palette = 11=d19a66

@@ -13,18 +13,22 @@ M.setup = function ()
     ColorColumn  = { bg = colors.highlight},
     VertSplit    = { fg = colors.line_fg },
     MatchParen   = { bg = colors.visualBg },
+    Search       = { bg = colors.search, fg = colors.lualine_fg },
+    CurSearch    = { bg = colors.search, fg = colors.lualine_fg },
 
     NormalFloat  = { fg = colors.fg, bg = colors.bg },
     FloatBoarder = { fg = colors.fg, bg = colors.bg },
+    CmpItemKind  = { fg = colors.type },
 
     Comment    = { fg = colors.comment },
     Number     = { fg = colors.number },
     String     = { fg = colors.string },
-    Boolean    = { fg = colors.constant },
+    Boolean    = { fg = colors.number },
     Operator   = { fg = colors.fg },
     Constant   = { fg = colors.constant },
     Statement  = { fg = colors.keyword },
     Keyword    = { fg = colors.keyword },
+    cStructure = { fg = colors.keyword },
     Identifier = { fg = colors.variable },
     Function   = { fg = colors.func },
     Type       = { fg = colors.type },
@@ -34,6 +38,10 @@ M.setup = function ()
 
     StatusLine   = { fg = colors.lualine_fg, bg = colors.lualine_bg },
     StatusLIneNC = { fg = colors.line_fg, bg = colors.bg },
+
+    OilFileHidden = { fg = colors.fg },
+    OilDirHidden  = { fg = colors.constant },
+    OilDir        = { fg = colors.type },
 
     ["@comment"]          = { link = "Comment" },
     ["@string"]           = { link = "String" },
