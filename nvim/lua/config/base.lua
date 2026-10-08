@@ -72,6 +72,29 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   end
 })
 
+local my_group = vim.api.nvim_create_augroup("WinActiveGroup", { clear = true })
+
+vim.api.nvim_create_autocmd("WinEnter", {
+  group = my_group,
+  pattern = "*",
+  callback = function()
+    if vim.bo.filetype == "TelescopePrompt" or vim.bo.buftype == "prompt"
+      or vim.bo.buftype == "nofile" or vim.bo.filetype == "compilation" then
+      return
+    end
+    vim.cmd("wincmd =")
+    vim.cmd("resize +10")
+    vim.cmd("vertical resize +10")
+  end,
+})
+
+-- vim.api.nvim_create_autocmd("WinLeave", {
+--   callback = function()
+--   end,
+-- })
+
+vim.opt.splitbelow = true
+
 -- local group = vim.api.nvim_create_augroup("DisableTSForCPP", { clear = true })
 --
 -- vim.api.nvim_create_autocmd("FileType", {

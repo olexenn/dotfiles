@@ -48,7 +48,7 @@ return {
       },
       preselect = 'item',
       completion = {
-        -- autocomplete = false,
+        autocomplete = false,
         completeopt = 'menu,menuone,noinsert',
       },
       window = {
@@ -65,6 +65,7 @@ return {
       },
       mapping = cmp.mapping.preset.insert({
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
+        ['<C-k>'] = cmp.mapping.complete(),
         -- Jump to the next snippet placeholder
         ['<C-f>'] = cmp.mapping(function(fallback)
           local luasnip = require('luasnip')

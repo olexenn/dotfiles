@@ -38,3 +38,24 @@ keymap.set('n', "sf", ':Oil<CR>')
 
 -- Diagnostic window
 keymap.set('n', "[e", vim.diagnostic.open_float, { desc = "Show line diagnostic" })
+
+-- Kill Compilation Pane
+local function kill_comp_pane()
+  local target_name = "compilation"
+
+  local wins = vim.api.nvim_tabpage_list_wins(0)
+
+  for _, win in ipairs(wins) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    local buf_name = vim.api.nvim_buf_get_name(buf)
+    local ft = vim.bo[buf].filetype
+
+    if string.match(buf_name, target_name) or ft == target_name then
+      vim.api.nvim_win_close(win, true)
+      return
+    end
+  end
+end
+
+vim.api.nvim_create_user_command('KillCompPane', kill_comp_pane, {})
+keymap.set('n', '<leader>ck', kill_comp_pane, { desc =  "KillCompPane" })
